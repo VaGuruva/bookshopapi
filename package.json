@@ -4,8 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=app:startup nodemon ./src/index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "graphql": "^14.6.0",
+    "helmet": "^3.22.0",
+    "joi": "^14.3.1",
+    "js-sha256": "^0.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.6",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pug": "^2.0.4",
+    "simple-crypto-js": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "apollo-server-express": "^2.11.0"
+  }
 }
