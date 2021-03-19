@@ -23,3 +23,5 @@ const OrderSchema = mongoose.Schema({
     maxLength: 255
   }
 });
+
+module.exports = OrderSchema;
