@@ -29,6 +29,7 @@ app.set("view engine", "pug");
 app.set("views", "src/views");
 
 app.use("/", home);
+app.use('/books',express.static(__dirname + '/images/books'));
 
 try {
   mongoose.connect(
