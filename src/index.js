@@ -1,5 +1,7 @@
 const express = require("express");
+var cors = require('cors')
 const app = express();
+app.use(cors())
 const _port = process.env.PORT || 3000;
 const helmet = require("helmet");
 const home = require("./routes/home");
