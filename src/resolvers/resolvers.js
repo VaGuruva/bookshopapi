@@ -10,6 +10,10 @@ const resolvers = {
     authors: AuthorResolver.getBooksByAuthor
   },
 
+  Author: {
+    books: BookResolver.getAuthorsByBook
+  },
+
   Query: {
     users: UserResolver.users,
     user: UserResolver.user,
