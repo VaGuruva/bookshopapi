@@ -27,3 +27,5 @@ const BookSchema = mongoose.Schema({
     ref: 'Author'
   }]
 });
+
+module.exports = BookSchema

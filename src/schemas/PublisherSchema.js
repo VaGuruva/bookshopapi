@@ -5,6 +5,7 @@ const PublisherSchema = mongoose.Schema({
   books: [
     {
       type: mongoose.Schema.Types.ObjectId,
+      unique: true,
       ref: "Book",
     }
   ]
