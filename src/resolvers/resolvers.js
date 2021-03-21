@@ -5,8 +5,9 @@ const UserResolver = require('./user.resolver');
 const OrderResolver = require('./order.resolver');
 
 const resolvers = {
-  Author: {
-    books: BookResolver.getAuthorsByBook
+  Book: {
+    publisher: PublisherResolver.getBookByPublisher,
+    authors: AuthorResolver.getBooksByAuthor
   },
 
   Query: {

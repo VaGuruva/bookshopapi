@@ -18,8 +18,8 @@ module.exports = {
     }
   },
 
-  getBooksByPublisher: (book, {}) =>
-    Publisher.find({ book: book._id }).where({ type: 'Book' }),
+  getBookByPublisher: (book, args) =>
+    Publisher.findById(book.publisher),
 
   createPublisher: async (root, args, context, info) => {
     try {
