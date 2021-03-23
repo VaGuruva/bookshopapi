@@ -47,10 +47,10 @@ const typeDefs = gql`
 
   type Order {
     _id: ID!
-    refNumber: String!
-    quantity: String!
-    books: [Book]
+    quantity: String
+    book: Book
     total: String
+    user: User
   }
 
   type Mutation {
@@ -72,11 +72,10 @@ const typeDefs = gql`
     updateAuthor(name: String, surname: String, books: [ID]): Author
     deleteAuthor(_id: ID!): Int
 
-    createOrder(refNumber: String, quantity: String, books: [ID], total: String): Order
-    updateOrder(refNumber: String, quantity: String, books: [ID], total: String): Order
+    createOrder(quantity: String, book: String, total: String, user: String): Order
+    updateOrder(quantity: String, book: ID, total: String, user: ID): Int
     deleteOrder(_id: ID!): Int
   }
 `;
 
 module.exports = typeDefs;
-

@@ -71,5 +71,13 @@ module.exports = {
     } catch (ex) {
       throw new ApolloError(`Book delete error ${ex.message}`);
     }
+  },
+
+  getOrderByBook: (order, {}) => {
+    try {
+      return Book.findById(order.book)
+    } catch (ex) {
+      throw new ApolloError(`Fetch Order by Book error ${ex.message}`);
+    }
   }
 }

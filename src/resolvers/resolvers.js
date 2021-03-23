@@ -14,6 +14,11 @@ const resolvers = {
     books: BookResolver.getAuthorsByBook
   },
 
+  Order: {
+    book: BookResolver.getOrderByBook,
+    user: UserResolver.getOrderByUser
+  },
+
   Query: {
     users: UserResolver.users,
     user: UserResolver.user,

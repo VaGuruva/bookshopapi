@@ -127,5 +127,13 @@ module.exports = {
     } else {
       throw new AuthenticationError('Password reset error!')
     }
+  },
+
+  getOrderByUser: (order, {}) => {
+    try {
+      return User.findById(order.user)
+    } catch (ex) {
+      throw new ApolloError(`Fetch Order by Book error ${ex.message}`);
+    }
   }
 }
