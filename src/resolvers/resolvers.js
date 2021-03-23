@@ -29,6 +29,7 @@ const resolvers = {
     authors: AuthorResolver.authors,
     author: AuthorResolver.author,
     orders: OrderResolver.orders,
+    orderByUser: OrderResolver.ordersByUser,
     order: OrderResolver.order
   },
 

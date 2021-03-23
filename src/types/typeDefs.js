@@ -12,6 +12,7 @@ const typeDefs = gql`
     author(_id: ID!): Author
     orders: [Order]
     order(refNumber: String): Order
+    orderByUser(email: String): [Order]
   }
 
   type Book {

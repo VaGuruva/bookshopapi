@@ -24,7 +24,14 @@ module.exports = {
   createOrder: async (root, args, context, info) => {
     try {
       const user = await User.findOne({ email: args.user });
+      if(!user){
+        throw new ApolloError(`User is not defined error ${ex.message}`);
+      }
+
       const book = await Book.findOne({ isbn: args.book });
+      if(!book){
+        throw new ApolloError(`Book is not defined error ${ex.message}`);
+      }
   
       args.book = book._id
       args.user = user._id
@@ -53,4 +60,18 @@ module.exports = {
       throw new ApolloError(`Update Delete error ${ex.message}`);
     }
   },
+
+  ordersByUser: async (parent, args, context) => {
+    try{
+      const user = await User.findOne({ email: args.email });
+      if(!user){
+        throw new ApolloError(`User is not defined error ${ex.message}`);
+      }
+
+      const orders = await Order.find({ user: user._id });
+      return orders;
+    } catch (ex){
+      throw new ApolloError(`Update Delete error ${ex.message}`);
+    }
+  }
 };
