@@ -57,7 +57,7 @@ module.exports = {
       const result = await Order.deleteOne({ _id: args._id }, args);
       return result.n;
     } catch (ex){
-      throw new ApolloError(`Update Delete error ${ex.message}`);
+      throw new ApolloError(`Delete Order error ${ex.message}`);
     }
   },
 
@@ -71,7 +71,7 @@ module.exports = {
       const orders = await Order.find({ user: user._id });
       return orders;
     } catch (ex){
-      throw new ApolloError(`Update Delete error ${ex.message}`);
+      throw new ApolloError(`Order by User error ${ex.message}`);
     }
   }
 };
