@@ -48,10 +48,15 @@ const typeDefs = gql`
 
   type Order {
     _id: ID!
+    number: String
     quantity: String
     book: Book
     total: String
     user: User
+  }
+
+  type DeleteResult{
+    deletedCount: Int
   }
 
   type Mutation {
@@ -63,19 +68,19 @@ const typeDefs = gql`
 
     createBook(title: String, isbn: String, publisher: ID, price: String, authors: [ID]): Book
     updateBook(title: String, isbn: String, publisher: ID, price: String, authors: [ID]): Book
-    deleteBook(_id: ID!): Int
+    deleteBook(_id: ID!): DeleteResult
 
     createPublisher(name: String, books: [ID]): Publisher
     updatePublisher(name: String, books: [ID]): Publisher
-    deletePublisher(_id: ID!): Int
+    deletePublisher(_id: ID!): DeleteResult
 
     createAuthor(name: String, surname: String, books: [ID]): Author
     updateAuthor(name: String, surname: String, books: [ID]): Author
-    deleteAuthor(_id: ID!): Int
+    deleteAuthor(_id: ID!): DeleteResult
 
     createOrder(quantity: String, book: String, total: String, user: String): Order
     updateOrder(quantity: String, book: ID, total: String, user: ID): Int
-    deleteOrder(_id: ID!): Int
+    deleteOrder( number: String): DeleteResult
   }
 `;
 

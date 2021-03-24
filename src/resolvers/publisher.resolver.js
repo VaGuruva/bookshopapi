@@ -61,7 +61,7 @@ module.exports = {
   deletePublisher: async (parent, args, context) => {
     try {
       const result = await Publisher.deleteOne({ _id: args._id }, args);
-      return result.n;
+      return result;
     } catch (ex) {
       throw new ApolloError(`Publisher delete error ${ex.message}`);
     }

@@ -35,7 +35,10 @@ module.exports = {
   
       args.book = book._id
       args.user = user._id
+      args.number = Math.random().toString(20).substr(2, 6);
+    
       const order = new Order(args);
+      
       await order.save();
       return order;
     } catch (ex) {
@@ -54,8 +57,8 @@ module.exports = {
 
   deleteOrder: async (parent, args, context) => {
     try{
-      const result = await Order.deleteOne({ _id: args._id }, args);
-      return result.n;
+      const result = await Order.deleteOne({ number: args.number }, args);
+      return result;
     } catch (ex){
       throw new ApolloError(`Delete Order error ${ex.message}`);
     }

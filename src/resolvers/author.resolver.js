@@ -65,7 +65,7 @@ module.exports = {
   deleteAuthor: async (parent, args, context) => {
     try {
       const result = await Author.deleteOne({ _id: args._id }, args);
-      return result.n;
+      return result;
     } catch (ex) {
       throw new ApolloError(`Author delete error ${ex.message}`);
     }

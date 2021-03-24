@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = mongoose.Schema({
+  number: {
+    type: String,
+    maxLength: 255
+  },
   quantity: {
     type: String,
     maxLength: 255

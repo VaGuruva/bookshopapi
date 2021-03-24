@@ -67,7 +67,7 @@ module.exports = {
   deleteBook: async (parent, args, context) => {
     try {
       const result = await Book.deleteOne({ _id: args._id }, args);
-      return result.n;
+      return result;
     } catch (ex) {
       throw new ApolloError(`Book delete error ${ex.message}`);
     }
