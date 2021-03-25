@@ -34,22 +34,21 @@ Query example:
     }
   }
   ```
+  Screenshot 2021-03-25 at 20.32.58![image](https://user-images.githubusercontent.com/16704814/112525277-65181a80-8da9-11eb-958c-a363c8d111f4.png)
+
   
   Mutation example:
   ```
-    mutation CreateOrder($quantity: String, $book: String, $total: String, $user: String) {
-    createOrder(quantity: $quantity, book: $book, total: $total, user: $user) {
-        quantity
-        total
-        book{
-            title
-        }
-        user{
-            email
-        }
-    }
+mutation{
+  createUser(name: "user",email: "user@mail.com", password:"user@test"){
+    name
+    email
+    token
   }
+}
   ```
+  Screenshot 2021-03-25 at 20.35.28![image](https://user-images.githubusercontent.com/16704814/112525623-be804980-8da9-11eb-8ccf-b8caa3e7d64f.png)
+
 
 # Unit Test
 Jest is used to unit testing of critical api functions
@@ -61,3 +60,5 @@ Run npm install to install dependancies
 Run npm run start to run the server
 To access the running server use http://localhost:3000
 To access the Graphql playground use http://localhost:3000/graphql
+
+
