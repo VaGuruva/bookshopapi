@@ -6,6 +6,7 @@ Its a simple api for adding and retrieving book order for users
 The API is hosted on an Amazon Web Services EC2 instance, and with pm2 as a process manager and load balancer
 Landing page url for api is : http://ec2-3-17-150-219.us-east-2.compute.amazonaws.com:3000/
 Graphql playgorund : http://ec2-3-17-150-219.us-east-2.compute.amazonaws.com:3000/graphql
+API access is publicly available via the supplied urls
 
 # Database access
 Using The cloud instance of mongodb: https://www.mongodb.com/cloud/atlas
@@ -60,5 +61,3 @@ Run npm install to install dependancies
 Run npm run start to run the server
 To access the running server use http://localhost:3000
 To access the Graphql playground use http://localhost:3000/graphql
-
-
