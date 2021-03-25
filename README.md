@@ -59,3 +59,5 @@ Download the API files
 Navigate to the root folder
 Run npm install to install dependancies
 Run npm run start to run the server
+To access the running server use http://localhost:3000
+To access the Graphql playground use http://localhost:3000/graphql
