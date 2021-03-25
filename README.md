@@ -53,6 +53,7 @@ mutation{
 
 # Unit Tests
 Jest is used to unit testing of critical api functions
+-Use npm run test to run unit tests 
 
 # Setting up on local host
 - Download the API files
