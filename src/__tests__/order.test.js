@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const Order = require('../models/order');
 const config = require('../config');
 const generateString = require('../services/randomCharGen');
+const ObjectID = require('mongodb').ObjectID;
 
 const orderData = { 
     number: generateString(5), 
     quantity: generateString(5), 
-    book: '605700a3af37d527308e98b0', 
+    book: new ObjectID(), 
     total: "0",
-    user: ['6057afeca55d403390cb39bc']
+    user: [new ObjectID()]
 };
 
 describe('Testing Order Model', () => {
@@ -36,9 +37,9 @@ describe('Testing Order Model', () => {
         const orderWithInvalidField = new Order({ 
             number: generateString(5), 
             quantity: generateString(5), 
-            book: '605700a3af37d527309e98b0', 
+            book: new ObjectID(), 
             total: "0",
-            user: ['6057afeca58d403990cb39bc'],
+            user: [new ObjectID()],
             date: new Date()
         });
         const savedOrderWithInvalidField = await orderWithInvalidField.save();

@@ -5,6 +5,7 @@ app.use(cors())
 const _port = process.env.PORT || 3000;
 const helmet = require("helmet");
 const home = require("./routes/home");
+const config = require('./config');
 
 const morgan = require("morgan");
 const debug = require("debug")("app:startup");
@@ -35,7 +36,7 @@ app.use('/books',express.static(__dirname + '/images/books'));
 
 try {
   mongoose.connect(
-    "mongodb+srv://booksApiadmin:iF11BebhbUfj004u@cluster0-nvxln.mongodb.net/book_order_db?retryWrites=true&w=majority",
+    config.mongoDbURI,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,

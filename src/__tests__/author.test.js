@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 const Author = require('../models/author');
 const config = require('../config');
 const generateString = require('../services/randomCharGen');
+const ObjectID = require('mongodb').ObjectID;
 
 const authorData = { 
     name: generateString(5), 
     surname: generateString(5), 
-    books: ['6057afeca55d403390cb39bc']
+    books: [new ObjectID()]
 };
 
 
@@ -33,7 +34,7 @@ describe('Testing Author Model', () => {
         const authorWithInvalidField = new Author({ 
             name: generateString(5), 
             surname: generateString(5), 
-            books: ['6057afeca55d403390cb39bc'],
+            books: [new ObjectID()],
             dob: new Date()
         });
         const savedAuthorWithInvalidField = await authorWithInvalidField.save();
@@ -44,7 +45,7 @@ describe('Testing Author Model', () => {
     it('create author without required field should fail', async () => {
         const authorWithoutRequiredField = new Author({ 
             surname: generateString(5), 
-            books: ['6057afeca55d403390cb39bc']
+            books: [new ObjectID()]
         });
         let err;
         try {

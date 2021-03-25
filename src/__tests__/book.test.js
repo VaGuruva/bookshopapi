@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const Book = require('../models/book');
 const config = require('../config');
 const generateString = require('../services/randomCharGen');
+const ObjectID = require('mongodb').ObjectID;
 
 const bookData = { 
-    title: generateString(5), 
-    isbn: generateString(5), 
-    publisher: '605700a3af37d527309e98b0', 
+    title: generateString(30), 
+    isbn: generateString(30), 
+    publisher: new ObjectID(), 
     price: "0",
-    authors: ['6057afeca55d403990cb39bc']
+    authors: [new ObjectID()]
 };
 
 describe('Testing Book Model', () => {
@@ -32,11 +33,11 @@ describe('Testing Book Model', () => {
 
     it('create book with field not defined in schema', async () => {
         const bookWithInvalidField = new Book({ 
-            title: generateString(5), 
-            isbn: generateString(5), 
-            publisher: '605700a3af37d527309e99b0', 
+            title: generateString(30), 
+            isbn: generateString(30), 
+            publisher: new ObjectID(), 
             price: "0",
-            authors: ['6057afeca55d403990cb39bc'],
+            authors: [new ObjectID()],
             edition: '4th'
         });
         const savedBookWithInvalidField = await bookWithInvalidField.save();
@@ -46,9 +47,9 @@ describe('Testing Book Model', () => {
 
     it('create book without required field should fail', async () => {
         const bookWithoutRequiredField = new Book({ 
-            publisher: '605700a3af37d527309e99b0', 
+            publisher: new ObjectID(), 
             price: "0",
-            authors: ['6057afeca55d403990cb39bc']
+            authors: [new ObjectID()]
         });
         let err;
         try {
@@ -59,4 +60,9 @@ describe('Testing Book Model', () => {
         }
         expect(err).toBeDefined();
     });  
+
+    it('get books list', async () => {
+        const books = await Book.find();
+        expect(books).toBeDefined();
+    }); 
 });
