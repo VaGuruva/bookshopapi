@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "DEBUG=app:startup nodemon ./src/index.js"
   },
   "author": "",
@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
-    "apollo-server-express": "^2.11.0"
+    "apollo-server-express": "^2.11.0",
+    "@shelf/jest-mongodb": "^1.1.0",
+    "jest": "^24.9.0"
   }
 }
