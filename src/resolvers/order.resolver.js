@@ -5,7 +5,12 @@ const Book = require("../models/book");
 const User = require("../models/user");
 
 module.exports = {
-  orders: () => {
+  orders: (parent, args, context) => {
+
+    if (!context.user){
+      throw new ApolloError(`User not authorized to make this request.`);
+    }
+
     try {
       return Order.find();
     } catch (ex) {
@@ -13,7 +18,12 @@ module.exports = {
     }
   },
 
-  order: (_, { _id }) => {
+  order: (_, { _id }, context) => {
+
+    if (!context.user){
+      throw new ApolloError(`User not authorized to make this request.`);
+    }
+
     try {
       return Order.findById(_id);
     } catch (ex) {
@@ -22,6 +32,11 @@ module.exports = {
   },
 
   createOrder: async (root, args, context, info) => {
+
+    if (!context.user){
+      throw new ApolloError(`User not authorized to create an order.`);
+    }
+
     try {
       const user = await User.findOne({ email: args.user });
       if(!user){
@@ -47,6 +62,11 @@ module.exports = {
   },
 
   updateOrder: async (parent, args, context) => {
+
+    if (!context.user){
+      throw new ApolloError(`User not authorized to update an order.`);
+    }
+
     try {
         const result = await Order.updateOne({ _id: args._id }, args);
         return result.n;
@@ -56,6 +76,10 @@ module.exports = {
   },
 
   deleteOrder: async (parent, args, context) => {
+    if (!context.user){
+      throw new ApolloError(`User not authorized to delete an order.`);
+    }
+
     try{
       const result = await Order.deleteOne({ number: args.number }, args);
       return result;
@@ -65,6 +89,11 @@ module.exports = {
   },
 
   ordersByUser: async (parent, args, context) => {
+
+    if (!context.user){
+      throw new ApolloError(`User not authorized to view this resource.`);
+    }
+
     try{
       const user = await User.findOne({ email: args.email });
       if(!user){

@@ -50,6 +50,10 @@ module.exports = {
   login: async (root, args, context, info) => {
     const user = await User.findOne({ email: args.email })
 
+    if (!user) {
+      throw new AuthenticationError('User does not exist!');
+    }
+
     if (user && user.passwordResetCode === args.password) {
       return user
     }
