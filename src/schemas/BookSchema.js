@@ -4,13 +4,11 @@ const BookSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    minLength: 5,
-    maxLength: 50
+    maxLength: 255
   },
   isbn: {
     type: String,
     unique: true,
-    minLength: 5,
     maxLength: 255
   },
   publisher: {
@@ -18,8 +16,7 @@ const BookSchema = mongoose.Schema({
     ref: 'Publisher'
   },
   price: {
-    type: Number,
-    minLength: 5,
+    type: String,
     maxLength: 255
   },
   authors: [{

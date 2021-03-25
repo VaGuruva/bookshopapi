@@ -5,7 +5,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
     minLength: 1,
-    maxLength: 50
+    maxLength: 255
   },
   email: {
     type: String,
@@ -17,8 +17,7 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minLength: 5,
-    maxLength: 1000
+    maxLength: 255
   },
   token: {
     type: String

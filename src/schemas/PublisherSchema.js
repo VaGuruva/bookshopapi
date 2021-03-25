@@ -4,7 +4,6 @@ const PublisherSchema = mongoose.Schema({
   name: {
     type: String,
     unique: true,
-    minLength: 5,
     maxLength: 255
   },
   books: [

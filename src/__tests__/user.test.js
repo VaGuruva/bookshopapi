@@ -1,16 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
-const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-const generateString = (length) => {
-    let result = ' ';
-    const charactersLength = characters.length;
-    for ( let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    return result;
-}
+const config = require('../config');
+const generateString = require('../services/randomCharGen');
 
 const userData = { 
   name: generateString(5), 
@@ -20,7 +11,7 @@ const userData = {
 
 describe('Testing User Model', () => {
     beforeAll(async () => {
-        await mongoose.connect('mongodb+srv://booksApiadmin:iF11BebhbUfj004u@cluster0-nvxln.mongodb.net/book_order_tests?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+        await mongoose.connect(config.mongoTestURI, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
             if (err) {
                 console.error(err);
                 process.exit(1);
