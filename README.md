@@ -18,6 +18,7 @@ API utilizes username and passord user authentication for access to some resourc
 Graphql aims to provide an alternative to traditional REST API architecture. At its core, GraphQL provides a syntax that describes how to ask for data in either mutations or queries passed through the request as per the model schema structure. Advantages to using it are API queries or data mutations can return a specific payload struture related to how the paylod is to be consumed. This has benefits of ensuring you only get wat you asks for and negates to an extend overfetching issue making request response times much improved
 
 Query example:
+```
   {
     books{
       title
@@ -32,8 +33,10 @@ Query example:
       }
     }
   }
+  ```
   
   Mutation example:
+  ```
     mutation CreateOrder($quantity: String, $book: String, $total: String, $user: String) {
     createOrder(quantity: $quantity, book: $book, total: $total, user: $user) {
         quantity
@@ -46,5 +49,6 @@ Query example:
         }
     }
   }
+  ```
 
 
