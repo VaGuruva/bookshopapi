@@ -1,8 +1,16 @@
 const mongoose = require('mongoose')
 
 const AuthorSchema = mongoose.Schema({
-  name: String,
-  surname: String,
+  name: {
+    type: String,
+    required: true,
+    maxLength: 255
+  },
+  surname: {
+    type: String,
+    required: true,
+    maxLength: 255
+  },
   books: [
     {
       type: mongoose.Schema.Types.ObjectId,

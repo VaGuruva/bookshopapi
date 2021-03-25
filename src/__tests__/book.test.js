@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Book = require('../models/book');
-const Publisher = require('../models/publisher');
-const Author = require('../models/author');
 const config = require('../config');
 const generateString = require('../services/randomCharGen');
 

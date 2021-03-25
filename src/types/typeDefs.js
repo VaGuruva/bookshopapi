@@ -74,8 +74,8 @@ const typeDefs = gql`
     updatePublisher(name: String, books: [ID]): Publisher
     deletePublisher(_id: ID!): DeleteResult
 
-    createAuthor(name: String, surname: String, books: [ID]): Author
-    updateAuthor(name: String, surname: String, books: [ID]): Author
+    createAuthor(name: String!, surname: String!, books: [ID]): Author
+    updateAuthor(name: String!, surname: String!, books: [ID]): Author
     deleteAuthor(_id: ID!): DeleteResult
 
     createOrder(quantity: String, book: String, total: String, user: String): Order
