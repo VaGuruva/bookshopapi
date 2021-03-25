@@ -50,7 +50,7 @@ mutation{
   Screenshot 2021-03-25 at 20.35.28![image](https://user-images.githubusercontent.com/16704814/112525623-be804980-8da9-11eb-8ccf-b8caa3e7d64f.png)
 
 
-# Unit Test
+# Unit Tests
 Jest is used to unit testing of critical api functions
 
 # Setting up on local host
