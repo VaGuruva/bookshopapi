@@ -51,4 +51,11 @@ Query example:
   }
   ```
 
+# Unit Test
+Jest is used to unit testing of critical api functions
 
+# Setting up on local host
+Download the API files
+Navigate to the root folder
+Run npm install to install dependancies
+Run npm run start to run the server
